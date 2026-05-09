@@ -36,7 +36,15 @@ internal static class RestaurantConfigLoader
 
             return config ?? DefaultConfig;
         }
-        catch
+        catch (JsonException)
+        {
+            return DefaultConfig;
+        }
+        catch (IOException)
+        {
+            return DefaultConfig;
+        }
+        catch (UnauthorizedAccessException)
         {
             return DefaultConfig;
         }

@@ -1,5 +1,6 @@
 using RestaurantApp.Application.Contracts;
 using RestaurantApp.Application.Models;
+using RestaurantApp.Application.Security;
 using RestaurantApp.Domain.Entities;
 
 namespace RestaurantApp.Infrastructure.Repositories;
@@ -116,7 +117,7 @@ public sealed class InMemoryRestaurantRepository : IRestaurantRepository
                 Email = "client@example.com",
                 Phone = "0711000000",
                 Address = "Str. Florilor 10",
-                Password = "client123",
+                PasswordHash = PasswordHasher.Hash("client123"),
                 Role = UserRole.Client,
             },
             new UserAccount
@@ -127,7 +128,7 @@ public sealed class InMemoryRestaurantRepository : IRestaurantRepository
                 Email = "employee@example.com",
                 Phone = "0722000000",
                 Address = "Str. Lalelelor 20",
-                Password = "employee123",
+                PasswordHash = PasswordHasher.Hash("employee123"),
                 Role = UserRole.Employee,
             },
         ];

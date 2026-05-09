@@ -167,7 +167,7 @@ public sealed class MainViewModel : INotifyPropertyChanged
         _currentUser = _service.Authenticate(Email.Trim(), Password);
         if (_currentUser is null)
         {
-            StatusMessage = "Autentificare esuata";
+            StatusMessage = "Autentificare eșuată";
             return;
         }
 

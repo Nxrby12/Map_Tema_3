@@ -1,7 +1,3 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
-
 namespace RestaurantApp.Presentation;
 
 /// <summary>
@@ -10,4 +6,3 @@ namespace RestaurantApp.Presentation;
 public partial class App : System.Windows.Application
 {
 }
-

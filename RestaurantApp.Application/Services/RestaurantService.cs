@@ -1,5 +1,6 @@
 using RestaurantApp.Application.Contracts;
 using RestaurantApp.Application.Models;
+using RestaurantApp.Application.Security;
 using RestaurantApp.Domain.Entities;
 
 namespace RestaurantApp.Application.Services;
@@ -42,7 +43,7 @@ public sealed class RestaurantService
     {
         return _repository.GetUsers().FirstOrDefault(u =>
             string.Equals(u.Email, email, StringComparison.OrdinalIgnoreCase) &&
-            string.Equals(u.Password, password, StringComparison.Ordinal));
+            string.Equals(u.PasswordHash, PasswordHasher.Hash(password), StringComparison.Ordinal));
     }
 
     public Order PlaceOrder(UserAccount? user, IReadOnlyList<(int productId, int quantity)> lines)
