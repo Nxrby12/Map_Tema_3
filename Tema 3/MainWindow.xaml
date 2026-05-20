@@ -1,0 +1,77 @@
+﻿<Window x:Class="Tema_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Restaurant Online" Height="600" Width="900">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Caută:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox Width="200" Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"/>
+            <ComboBox Margin="10,0" Width="120" SelectedIndex="0">
+                <ComboBoxItem Content="După Denumire"/>
+                <ComboBoxItem Content="După Alergen"/>
+            </ComboBox>
+            <Button Content="Caută" Command="{Binding SearchCommand}" Width="70"/>
+            <Separator Width="50" Visibility="Hidden"/>
+            <Button Content="Login" Click="Login_Click" Width="80"/>
+            <Button Content="Cont Nou" Click="Register_Click" Width="80" Margin="5,0"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding CategoriesWithProducts}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,10">
+                            <TextBlock Text="{Binding Name}" FontSize="20" FontWeight="Bold" Foreground="DarkRed"/>
+                            <Separator Background="DarkRed" Height="2"/>
+
+                            <ListBox ItemsSource="{Binding Products}" BorderThickness="0">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="LightGray" BorderThickness="1" Margin="5" Padding="10" Width="800">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Grid.Column="0" Source="pack://application:,,,/Resources/placeholder.png" Height="80" Width="80"/>
+
+                                                <StackPanel Grid.Column="1" Margin="10,0">
+                                                    <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="SemiBold"/>
+                                                    <TextBlock Text="{Binding PortionQuantity, StringFormat='Cantitate: {0}'}" FontStyle="Italic"/>
+                                                    <TextBlock Text="Alergeni: ..." Foreground="Gray" FontSize="11"/>
+
+                                                    <TextBlock Text="INDISPONIBIL" Foreground="Red" FontWeight="Bold" 
+                                                               Visibility="{Binding IsAvailable, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Inverse}"/>
+                                                </StackPanel>
+
+                                                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                                                    <TextBlock Text="{Binding Price, StringFormat='{}{0} lei'}" FontSize="18" FontWeight="Bold" HorizontalAlignment="Right"/>
+
+                                                    <Button Content="Adaugă în coș" Margin="0,5,0,0" Padding="10,5"
+                                                            IsEnabled="{Binding DataContext.IsUserLoggedIn, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Window>
