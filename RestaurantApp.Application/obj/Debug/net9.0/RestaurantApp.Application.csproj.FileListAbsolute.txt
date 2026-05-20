@@ -1,0 +1,16 @@
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\bin\Debug\net9.0\RestaurantApp.Application.deps.json
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\bin\Debug\net9.0\RestaurantApp.Application.dll
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\bin\Debug\net9.0\RestaurantApp.Application.pdb
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\bin\Debug\net9.0\RestaurantApp.Domain.dll
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\bin\Debug\net9.0\RestaurantApp.Domain.pdb
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\RestaurantApp.Application.csproj.AssemblyReference.cache
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\RestaurantApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\RestaurantApp.Application.AssemblyInfoInputs.cache
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\RestaurantApp.Application.AssemblyInfo.cs
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\RestaurantApp.Application.csproj.CoreCompileInputs.cache
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\RestaurantApp.Application.sourcelink.json
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\Restaura.66220947.Up2Date
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\RestaurantApp.Application.dll
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\refint\RestaurantApp.Application.dll
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\RestaurantApp.Application.pdb
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Application\obj\Debug\net9.0\ref\RestaurantApp.Application.dll

@@ -1,0 +1,12 @@
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\bin\Debug\net9.0\RestaurantApp.Domain.deps.json
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\bin\Debug\net9.0\RestaurantApp.Domain.dll
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\bin\Debug\net9.0\RestaurantApp.Domain.pdb
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\obj\Debug\net9.0\RestaurantApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\obj\Debug\net9.0\RestaurantApp.Domain.AssemblyInfoInputs.cache
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\obj\Debug\net9.0\RestaurantApp.Domain.AssemblyInfo.cs
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\obj\Debug\net9.0\RestaurantApp.Domain.csproj.CoreCompileInputs.cache
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\obj\Debug\net9.0\RestaurantApp.Domain.sourcelink.json
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\obj\Debug\net9.0\RestaurantApp.Domain.dll
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\obj\Debug\net9.0\refint\RestaurantApp.Domain.dll
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\obj\Debug\net9.0\RestaurantApp.Domain.pdb
+C:\Norbert\FACULTATE\MAP\Tema3.2\RestaurantApp.Domain\obj\Debug\net9.0\ref\RestaurantApp.Domain.dll

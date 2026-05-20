@@ -1,0 +1,56 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "RestaurantApp.Infrastructure/1.0.0": {
+        "dependencies": {
+          "RestaurantApp.Application": "1.0.0",
+          "RestaurantApp.Domain": "1.0.0"
+        },
+        "runtime": {
+          "RestaurantApp.Infrastructure.dll": {}
+        }
+      },
+      "RestaurantApp.Application/1.0.0": {
+        "dependencies": {
+          "RestaurantApp.Domain": "1.0.0"
+        },
+        "runtime": {
+          "RestaurantApp.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "RestaurantApp.Domain/1.0.0": {
+        "runtime": {
+          "RestaurantApp.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RestaurantApp.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RestaurantApp.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RestaurantApp.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
