@@ -1,0 +1,128 @@
+<Window x:Class="RestaurantApp.Presentation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Restaurant Online" Height="720" Width="1280">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border BorderThickness="1" BorderBrush="LightGray" Padding="8" CornerRadius="4">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Email:" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                <TextBox Width="180" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,8,0"/>
+                <TextBlock Text="Parola:" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                <PasswordBox Width="130" Margin="0,0,8,0" PasswordChanged="PasswordBox_OnPasswordChanged"/>
+                <Button Content="Autentificare" Width="110" Command="{Binding LoginCommand}" Margin="0,0,8,0"/>
+                <Button Content="Logout" Width="80" Command="{Binding LogoutCommand}"/>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Grid.Row="1" Text="{Binding StatusMessage}" Margin="0,8,0,8" FontWeight="SemiBold"/>
+
+        <TabControl Grid.Row="2">
+            <TabItem Header="Meniu &amp; Cautare">
+                <DockPanel Margin="6">
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="Criteriu:" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                        <ComboBox Width="120" ItemsSource="{Binding SearchTypes}" SelectedItem="{Binding SelectedSearchType}" Margin="0,0,8,0"/>
+                        <CheckBox Content="Contine" IsChecked="{Binding ShouldContain}" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                        <TextBox Width="220" Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,8,0"/>
+                        <Button Content="Cauta" Width="90" Command="{Binding SearchCommand}" Margin="0,0,8,0"/>
+                        <Button Content="Reset" Width="90" Command="{Binding ResetSearchCommand}"/>
+                    </StackPanel>
+
+                    <DataGrid ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuProduct}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Categorie" Binding="{Binding Category}" Width="120"/>
+                            <DataGridTextColumn Header="Produs" Binding="{Binding Name}" Width="160"/>
+                            <DataGridTextColumn Header="Tip" Binding="{Binding ProductType}" Width="90"/>
+                            <DataGridTextColumn Header="Cantitate/Portie" Binding="{Binding Portion}" Width="120"/>
+                            <DataGridTextColumn Header="Pret" Binding="{Binding Price}" Width="70"/>
+                            <DataGridTextColumn Header="Alergeni" Binding="{Binding Allergens}" Width="160"/>
+                            <DataGridTextColumn Header="Imagini" Binding="{Binding Images}" Width="220"/>
+                            <DataGridTextColumn Header="Componente Meniu" Binding="{Binding Components}" Width="220"/>
+                            <DataGridTextColumn Header="Disponibilitate" Binding="{Binding Availability}" Width="110"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="Client">
+                <Grid Margin="6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBlock Text="Cantitate:" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                        <TextBox Width="80" Text="{Binding OrderQuantity, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,8,0"/>
+                        <Button Content="Plaseaza comanda pentru produsul selectat" Width="280" Command="{Binding PlaceOrderCommand}" Margin="0,0,8,0"/>
+                        <Button Content="Reincarca comenzile mele" Width="170" Command="{Binding RefreshClientOrdersCommand}"/>
+                        <Button Content="Anuleaza comanda selectata" Width="180" Command="{Binding CancelOrderCommand}" Margin="8,0,0,0"/>
+                    </StackPanel>
+
+                    <DataGrid Grid.Row="1" ItemsSource="{Binding ClientOrders}" SelectedItem="{Binding SelectedClientOrder}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Data" Binding="{Binding CreatedAt}" Width="140"/>
+                            <DataGridTextColumn Header="Cod" Binding="{Binding Code}" Width="140"/>
+                            <DataGridTextColumn Header="Produse" Binding="{Binding Lines}" Width="250"/>
+                            <DataGridTextColumn Header="Cost mancare" Binding="{Binding FoodCost}" Width="100"/>
+                            <DataGridTextColumn Header="Transport" Binding="{Binding ShippingCost}" Width="80"/>
+                            <DataGridTextColumn Header="Discount" Binding="{Binding Discount}" Width="80"/>
+                            <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="90"/>
+                            <DataGridTextColumn Header="Stare" Binding="{Binding Status}" Width="110"/>
+                            <DataGridTextColumn Header="ETA" Binding="{Binding Eta}" Width="130"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Angajat">
+                <Grid Margin="6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <Button Content="Toate comenzile" Width="120" Command="{Binding RefreshEmployeeOrdersCommand}" Margin="0,0,8,0"/>
+                        <Button Content="Comenzi active" Width="120" Command="{Binding RefreshActiveEmployeeOrdersCommand}" Margin="0,0,8,0"/>
+                        <TextBlock Text="Stare noua:" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                        <ComboBox Width="130" ItemsSource="{Binding UpdatableStatuses}" SelectedItem="{Binding SelectedOrderStatus}" Margin="0,0,8,0"/>
+                        <Button Content="Actualizeaza starea comenzii selectate" Width="260" Command="{Binding UpdateOrderStatusCommand}" Margin="0,0,8,0"/>
+                        <Button Content="Preparate aproape epuizate" Width="190" Command="{Binding RefreshLowStockCommand}"/>
+                    </StackPanel>
+
+                    <DataGrid Grid.Row="1" ItemsSource="{Binding EmployeeOrders}" SelectedItem="{Binding SelectedEmployeeOrder}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Data" Binding="{Binding CreatedAt}" Width="140"/>
+                            <DataGridTextColumn Header="Cod" Binding="{Binding Code}" Width="130"/>
+                            <DataGridTextColumn Header="Produse" Binding="{Binding Lines}" Width="230"/>
+                            <DataGridTextColumn Header="Mancare" Binding="{Binding FoodCost}" Width="90"/>
+                            <DataGridTextColumn Header="Transport" Binding="{Binding ShippingCost}" Width="80"/>
+                            <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="90"/>
+                            <DataGridTextColumn Header="ETA" Binding="{Binding Eta}" Width="130"/>
+                            <DataGridTextColumn Header="Stare" Binding="{Binding Status}" Width="95"/>
+                            <DataGridTextColumn Header="Client" Binding="{Binding Client}" Width="260"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid Grid.Row="2" ItemsSource="{Binding LowStockItems}" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" Margin="0,8,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Preparat" Binding="{Binding DishName}" Width="220"/>
+                            <DataGridTextColumn Header="Cantitate totala" Binding="{Binding TotalQuantity}" Width="140"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
